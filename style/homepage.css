@@ -97,7 +97,7 @@ a {
 }
 a:hover {
   text-decoration: underline;
-  color: rgb(73, 181, 205);
+  color: rgb(66, 150, 168);
   cursor: pointer;
 }
 .link {
@@ -110,15 +110,24 @@ a:hover {
   padding: 8px;
 }
 .btn {
-  background-color: rgb(73, 181, 205);
-  border-color: rgb(73, 181, 205);
+  background-color: rgb(66, 150, 168);
+  border-color: rgb(66, 150, 168);
   color: #fff;
   transition: all 200ms ease-in-out;
 }
 .btn:hover {
   cursor: pointer;
-  background-color: rgb(73, 181, 205);
   border-color: #fff;
   color: #fff;
   cursor: pointer;
+  background-color: rgb(66, 150, 168);
+}
+.highlights{
+  color: rgb(42, 129, 148);
+  padding-right: 20px;
+}
+.info{
+  opacity: 0.5;
+  text-align: left;
+  padding-left: 20px;
 }
