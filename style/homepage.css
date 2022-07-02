@@ -106,3 +106,6 @@ a:hover {
   font-size: 12px;
   padding-right: 60px;
 }
+.form{
+  border-radius: 10px;
+}
