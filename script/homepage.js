@@ -11,7 +11,7 @@ function searchTemp(response) {
   document.querySelector(".night-temperature").innerHTML = `/ ${min}°`;
 
   document.querySelector("#description").innerHTML =
-    response.data.weather[0].main;
+    response.data.weather[0].description;
   document.querySelector("#humidity").innerHTML = response.data.main.humidity;
   document.querySelector("#wind").innerHTML = Math.round(
     response.data.wind.speed * 3.6

@@ -126,6 +126,9 @@ a:hover {
   color: rgb(42, 129, 148);
   padding-right: 20px;
 }
+em{
+  text-transform: capitalize;
+}
 .info{
   opacity: 0.5;
   text-align: left;
