@@ -1,45 +1,4 @@
-function searchTemp(response) {
-  console.log(response.data);
-  document.querySelector("#city").innerHTML = response.data.name;
-  document.querySelector("#country").innerHTML = response.data.sys.country;
-
-  let max = Math.round(response.data.main.temp_max);
-  let min = Math.round(response.data.main.temp_min);
-  document.querySelector(
-    ".day-temperature"
-  ).innerHTML = `<srtong><b> ${max}° </b></strong>`;
-  document.querySelector(".night-temperature").innerHTML = `/ ${min}°`;
-
-  document.querySelector("#description").innerHTML =
-    response.data.weather[0].description;
-  document.querySelector("#humidity").innerHTML = response.data.main.humidity;
-  document.querySelector("#wind").innerHTML = Math.round(
-    response.data.wind.speed * 3.6
-  );
-  document.querySelector("#clouds").innerHTML = response.data.clouds.all;
-}
-
-function auto(city) {
-  let key = "727f8c7634f34b68e4f814522083ca30";
-  let apiurl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${key}&units=metric`;
-  axios.get(`${apiurl}`).then(searchTemp);
-}
-
-function search(event) {
-  event.preventDefault();
-  let city = document.querySelector("#enter-city").value;
-  auto(city);
-}
-
-function noon(now) {
-  if (now.getHours() > 11) {
-    return `p.m.`;
-  } else {
-    return `a.m.`;
-  }
-}
-
-function time(now) {
+function time(timestamp) {
   let time = [
     "00",
     1,
@@ -66,6 +25,7 @@ function time(now) {
     10,
     11,
   ];
+  let now = new Date(timestamp);
   let hour = time[now.getHours()];
   let minutes = now.getMinutes();
   if (minutes < 10) {
@@ -73,6 +33,51 @@ function time(now) {
   }
   return `${hour}:${minutes}`;
 }
+
+
+function searchTemp(response) {
+  console.log(response.data);
+  document.querySelector("#city").innerHTML = response.data.name;
+  document.querySelector("#country").innerHTML = response.data.sys.country;
+  
+  let max = Math.round(response.data.main.temp_max);
+  let min = Math.round(response.data.main.temp_min);
+  document.querySelector(
+    ".day-temperature"
+    ).innerHTML = `<srtong><b> ${max}° </b></strong>`;
+    document.querySelector(".night-temperature").innerHTML = `/ ${min}°`;
+    
+    document.querySelector("#description").innerHTML =
+    response.data.weather[0].description;
+    document.querySelector("#humidity").innerHTML = response.data.main.humidity;
+    document.querySelector("#wind").innerHTML = Math.round(
+      response.data.wind.speed * 3.6
+      );
+      document.querySelector("#clouds").innerHTML = response.data.clouds.all;
+      let h2 = document.querySelector("h2");
+      h2.innerHTML = time(response.data.dt * 1000);
+}
+
+function auto(city) {
+  let key = "727f8c7634f34b68e4f814522083ca30";
+  let apiurl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${key}&units=metric`;
+  axios.get(`${apiurl}`).then(searchTemp);
+}
+
+function search(event) {
+  event.preventDefault();
+  let city = document.querySelector("#enter-city").value;
+  auto(city);
+}
+
+function noon(now) {
+  if (now.getHours() > 11) {
+    return `p.m.`;
+  } else {
+    return `a.m.`;
+  }
+}
+
 
 function returnDate(now) {
   let days = [
@@ -154,8 +159,6 @@ cities.addEventListener("submit", search);
 let pm = document.querySelector("h5");
 pm.innerHTML = noon(now);
 
-let h2 = document.querySelector("h2");
-h2.innerHTML = time(now);
 
 let calender = document.querySelector("#current-date");
 calender.innerHTML = returnDate(now);
