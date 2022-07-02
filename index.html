@@ -11,12 +11,12 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-    href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Roboto+Slab:wght@100;200;300;400;500;600;700;800;900&display=swap"
-    rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&family=Roboto+Slab:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
     />
     <script
-    src="https://kit.fontawesome.com/83ecad7b21.js"
-    crossorigin="anonymous"
+      src="https://kit.fontawesome.com/83ecad7b21.js"
+      crossorigin="anonymous"
     ></script>
     <link rel="stylesheet" href="style/homepage.css" />
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
@@ -52,12 +52,12 @@
               <div class="card-body">
                 <h1>
                   <span id="city"></span>
-                  <br />
                   <span class="country" id="country"></span>
                 </h1>
+                <h5 class="update">Last updated:</h5>
               </div>
               <div class="time">
-                <h5></h5>
+                <h5 id="pm"></h5>
                 <h2></h2>
               </div>
             </div>
@@ -92,15 +92,23 @@
                   <div class="row">
                     <div class="col-7">
                       <p class="info">
-                       Cloudiness: <br>
-                       Humidity: <br>
-                      Wind:
+                        Cloudiness: <br />
+                        Humidity: <br />
+                        Wind:
                       </p>
                     </div>
                     <div class="col-5">
-                      <span class="highlights"><span id="clouds"></span> %</span> <br>
-                      <span class="highlights"><span id="humidity"></span> %</span> <br>
-                      <span class="highlights"><span id="wind"></span> km/hour</span>
+                      <span class="highlights"
+                        ><span id="clouds"></span> %</span
+                      >
+                      <br />
+                      <span class="highlights"
+                        ><span id="humidity"></span> %</span
+                      >
+                      <br />
+                      <span class="highlights"
+                        ><span id="wind"></span> km/hour</span
+                      >
                     </div>
                   </div>
                 </div>

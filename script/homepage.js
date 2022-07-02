@@ -156,7 +156,7 @@ let now = new Date();
 let cities = document.querySelector("#input-text");
 cities.addEventListener("submit", search);
 
-let pm = document.querySelector("h5");
+let pm = document.querySelector("#pm");
 pm.innerHTML = noon(now);
 
 
