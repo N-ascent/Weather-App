@@ -16,7 +16,7 @@ function searchTemp(response) {
   document.querySelector("#wind").innerHTML = Math.round(
     response.data.wind.speed * 3.6
   );
-  document.querySelector("#precipitation").innerHTML = `—`;
+  document.querySelector("#clouds").innerHTML = response.data.clouds.all;
 }
 
 function auto(city) {
