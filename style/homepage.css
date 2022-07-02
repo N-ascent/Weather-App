@@ -101,3 +101,8 @@ a:hover {
   color: rgb(73, 181, 205);
   cursor: pointer;
 }
+.link {
+  text-align: right;
+  font-size: 12px;
+  padding-right: 40px;
+}
