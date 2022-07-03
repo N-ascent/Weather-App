@@ -54,8 +54,11 @@ function searchTemp(response) {
       response.data.wind.speed * 3.6
       );
       document.querySelector("#clouds").innerHTML = response.data.clouds.all;
-      let h2 = document.querySelector("h2");
-      h2.innerHTML = time(response.data.dt * 1000);
+      document.querySelector("h2").innerHTML = time(response.data.dt * 1000);
+      document.querySelector(
+        "#icon"
+      ).setAttribute("src", `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`)
+
 }
 
 function auto(city) {
