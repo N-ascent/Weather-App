@@ -20,14 +20,26 @@ function searchTemp(response) {
   );
   document.querySelector("#clouds").innerHTML = response.data.clouds.all;
   document.querySelector("h2").innerHTML = time(response.data.dt * 1000);
-  document
-    .querySelector("#icon")
-    .setAttribute(
-      "src",
-      `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
-    );
+  let icon = document.querySelector("#icon")
+    icon.setAttribute("src", `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
+    icon.setAttribute("alt", response.data.weather[0].description);
+    background(response.data.weather[0].icon);
 
   getForecast(response.data.coord);
+}
+
+function background(icon){
+  iconLetter = icon.replace(/[0-9]/g, ` `);
+  console.log(iconLetter)
+  let container = document.querySelector("#container");
+  if (iconLetter.trim() === "d"){
+  container.style.background = `radial-gradient(circle at 10% 20%, rgb(255, 200, 124) 0%, rgb(252, 251, 121) 90%)`;
+} else {
+  if (iconLetter.trim() === "n"){
+    container.style.background = `linear-gradient(109.6deg, rgb(0, 0, 0) 11.2%, rgb(11, 132, 145) 91.1%)`;}
+    else{}
+   container.style.background = `default`;
+  }
 }
 
 function getForecast(coordinates) {
