@@ -38,7 +38,26 @@ function searchTemp(response) {
 }
 
 function showForecast(){
-
+let forecast = response.data.daily;
+let forecastElement = document.querySelector("#forecast")
+forecast.forEach(function (forecastDay) {
+  forecastHTML = `<div class="day">
+            <div class="row">
+              <div class="col-4">
+                <h4 id="one">${weekday(forecastDay.dt)}</h4>
+              </div>
+              <div class="col-3">
+                <img src="http://openweathermap.org/img/wn/${forecastDay.weather[0].icon}@2x.png" alt="#"/>
+              </div>
+              <div class="col-5">
+                <h4 class="degree">
+                  <strong>${forecastDay.temp.max}°</strong>
+                  <h6>/ ${forecastDay.temp.min}°</h6>
+                </h4>
+              </div>
+            </div>
+          </div>`;
+});
 }
 
 function time(timestamp) {
@@ -111,6 +130,7 @@ function returnDate(now) {
   }
   
   function weekday(now) {
+
     let week = [
       `Sun`,
       `Mon`,
