@@ -128,23 +128,6 @@ function canada(event) {
   night.innerHTML = `| 19°`;
 }
 
-function showTemp(response) {
-  console.log(response.data);
-  let place = document.querySelector("#city");
-  let country = document.querySelector("#country");
-  place.innerHTML = `${response.data.name},`;
-  country.innerHTML = response.data.sys.country;
-  let max = Math.round(response.data.main.temp_max);
-  let min = Math.round(response.data.main.temp_min);
-  let day = document.querySelector(".day-temperature");
-  let night = document.querySelector(".night-temperature");
-  day.innerHTML = `<srtong><b> ${max}° </b></strong>`;
-  night.innerHTML = `/ ${min}°`;
-
-  let description = document.querySelector("#description");
-  description.innerHTML = response.data.weather[0].description;
-}
-
 function showPosition(position) {
   let lat = position.coords.latitude;
   let lon = position.coords.longitude;
@@ -162,7 +145,6 @@ cities.addEventListener("submit", search);
 let pm = document.querySelector("#pm");
 pm.innerHTML = noon(now);
 
-
 let calender = document.querySelector("#current-date");
 calender.innerHTML = returnDate(now);
 
@@ -172,35 +154,38 @@ fahrenheit.addEventListener("click", usa);
 let celsius = document.querySelector("#celsius");
 celsius.addEventListener("click", canada);
 
-let week = [
-  `Sun`,
-  `Mon`,
-  `Tue`,
-  `Wed`,
-  `Thu`,
-  `Fri`,
-  `Sat`,
-  `Sun`,
-  `Mon`,
-  `Tue`,
-  `Wed`,
-  `Thu`,
-  `Fri`,
-  `Sat`,
-];
-
-let dayOne = document.querySelector("#one");
-let dayTwo = document.querySelector("#two");
-let dayThree = document.querySelector("#three");
-let dayFour = document.querySelector("#four");
-let dayFive = document.querySelector("#five");
-
-dayOne.innerHTML = `${week[now.getDay() + 1]}`;
-dayTwo.innerHTML = `${week[now.getDay() + 2]}`;
-dayThree.innerHTML = `${week[now.getDay() + 3]}`;
-dayFour.innerHTML = `${week[now.getDay() + 4]}`;
-dayFive.innerHTML = `${week[now.getDay() + 5]}`;
-
-navigator.geolocation.getCurrentPosition(showPosition);
-
-auto("Vancouver");
+function weekday(now){
+  let week = [
+    `Sun`,
+    `Mon`,
+    `Tue`,
+    `Wed`,
+    `Thu`,
+    `Fri`,
+    `Sat`,
+    `Sun`,
+    `Mon`,
+    `Tue`,
+    `Wed`,
+    `Thu`,
+    `Fri`,
+    `Sat`,
+  ];
+  
+  let dayOne = document.querySelector("#one");
+  let dayTwo = document.querySelector("#two");
+  let dayThree = document.querySelector("#three");
+  let dayFour = document.querySelector("#four");
+  let dayFive = document.querySelector("#five");
+  
+  dayOne.innerHTML = `${week[now.getDay() + 1]}`;
+  dayTwo.innerHTML = `${week[now.getDay() + 2]}`;
+  dayThree.innerHTML = `${week[now.getDay() + 3]}`;
+  dayFour.innerHTML = `${week[now.getDay() + 4]}`;
+  dayFive.innerHTML = `${week[now.getDay() + 5]}`;
+}
+    
+  navigator.geolocation.getCurrentPosition(showPosition);
+  
+  auto("Vancouver");
+  weekday(now)
