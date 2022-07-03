@@ -14,7 +14,7 @@ body {
   );
 }
 .card {
-  background: rgba(73, 181, 205, 0.2);
+  background: rgba(73, 181, 205, 0.7);
   border: none;
   border-radius: 20px;
   margin-bottom: 10px;
@@ -87,7 +87,7 @@ p {
   font-size: 50px;
   padding: 5px;
   border-radius: 50px;
-  border-bottom: 8px solid rgba(73, 181, 205, 0.2);
+  border-bottom: 8px solid rgba(73, 181, 205, 0.4);
 }
 .degree {
   padding-top: 25px;
@@ -132,9 +132,9 @@ a {
   padding: 8px;
 }
 .btn {
-  background-color: rgb(66, 150, 168);
-  border-color: rgb(66, 150, 168);
-  color: #fff;
+  background-color: ;
+  border-color: rgb(0,0,0);
+  color: rgb(0,0,0);
   transition: all 200ms ease-in-out;
 }
 .btn:hover {
@@ -145,7 +145,7 @@ a {
   background-color: rgb(66, 150, 168);
 }
 .highlights {
-  color: rgb(42, 129, 148);
+  color: black;
   padding-right: 20px;
 }
 em {

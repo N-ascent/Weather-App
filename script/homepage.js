@@ -32,13 +32,17 @@ function background(icon){
   iconLetter = icon.replace(/[0-9]/g, ` `);
   console.log(iconLetter)
   let container = document.querySelector("#container");
+  let button = document.querySelector(".btn");
   if (iconLetter.trim() === "d"){
   container.style.background = `radial-gradient(circle at 10% 20%, rgb(255, 200, 124) 0%, rgb(252, 251, 121) 90%)`;
+  button.style.background = `radial-gradient(circle at 10% 20%, rgb(255, 200, 124) 0%, rgb(252, 251, 121) 90%)`;
 } else {
   if (iconLetter.trim() === "n"){
-    container.style.background = `linear-gradient(109.6deg, rgb(0, 0, 0) 11.2%, rgb(11, 132, 145) 91.1%)`;}
-    else{}
-   container.style.background = `default`;
+    container.style.background = `linear-gradient(109.6deg, rgb(0, 0, 0) 11.2%, rgb(11, 132, 145) 91.1%)`;
+    button.style.background = `linear-gradient(109.6deg, rgb(0, 0, 0) 1.2%, rgb(11, 132, 145) 91.1%)`;
+  }
+  else{}
+  container.style.background = `default`;
   }
 }
 
