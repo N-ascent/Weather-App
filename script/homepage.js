@@ -142,6 +142,18 @@ function returnDate(now) {
     months[now.getMonth()]
   } ${now.getDate()} ${now.getFullYear()}`;
 }
+function returnWeekday(now){
+  let days = [
+    `Sunday`,
+    `Monday`,
+    `Tuesday`,
+    `Wednesday`,
+    `Thursday`,
+    `Friday`,
+    `Satuday`,
+  ];
+  return `${days[now.getDay()]}`
+}
 
 function usa(event) {
   event.preventDefault();
@@ -209,6 +221,7 @@ pm.innerHTML = noon(now);
 
 let calender = document.querySelector("#current-date");
 calender.innerHTML = returnDate(now);
+document.querySelector("#weekday").innerHTML = returnWeekday(now)
 
 let fahrenheit = document.querySelector("#fahrenheit");
 fahrenheit.addEventListener("click", usa);
