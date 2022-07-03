@@ -24,7 +24,11 @@ body {
   position: relative;
   bottom: 30px;
 }
-
+.icon{
+  width: 80px;
+  height: 80px;
+  
+}
 h1 {
   font-family: "Roboto Slab", serif;
   text-align: left;
