@@ -129,30 +129,11 @@ function returnDate(now) {
     axios.get(`${apiurl}`).then(searchTemp);
   }
   
-  function weekday(now) {
-
-    let week = [
-      `Sun`,
-      `Mon`,
-      `Tue`,
-      `Wed`,
-    `Thu`,
-    `Fri`,
-    `Sat`,
-    `Sun`,
-    `Mon`,
-    `Tue`,
-    `Wed`,
-    `Thu`,
-    `Fri`,
-    `Sat`,
-  ];
-
-  document.querySelector("#one").innerHTML = `${week[now.getDay() + 1]}`;
-  document.querySelector("#two").innerHTML = `${week[now.getDay() + 2]}`;
-  document.querySelector("#three").innerHTML = `${week[now.getDay() + 3]}`;
-  document.querySelector("#four").innerHTML = `${week[now.getDay() + 4]}`;
-  document.querySelector("#five").innerHTML = `${week[now.getDay() + 5]}`;
+  function weekday(timestamp) {
+    let now = new Date(timestamp*1000)
+    let day = now.getDay()
+    let week = [ `Sun`,  `Mon`,  `Tue`,  `Wed`, `Thu`, `Fri`, `Sat`, ];
+    return week[day]
 }
 
 let now = new Date();
@@ -175,4 +156,3 @@ celsius.addEventListener("click", canada);
 navigator.geolocation.getCurrentPosition(showPosition);
 
 auto("Vancouver");
-weekday(now);
