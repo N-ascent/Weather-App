@@ -40,7 +40,8 @@ function searchTemp(response) {
 function showForecast(){
 let forecast = response.data.daily;
 let forecastElement = document.querySelector("#forecast")
-forecast.forEach(function (forecastDay) {
+forecast.forEach(function (forecastDay, index) {
+  if (index<5){
   forecastHTML = `<div class="day">
             <div class="row">
               <div class="col-4">
@@ -51,13 +52,15 @@ forecast.forEach(function (forecastDay) {
               </div>
               <div class="col-5">
                 <h4 class="degree">
-                  <strong>${forecastDay.temp.max}°</strong>
-                  <h6>/ ${forecastDay.temp.min}°</h6>
+                  <strong>${Math.round(forecastDay.temp.max)}°</strong>
+                  <h6>/ ${Math.round(forecastDay.temp.min)}°</h6>
                 </h4>
               </div>
             </div>
           </div>`;
-});
+};
+})
+forecastElement.innerHTML = forecastHTML;
 }
 
 function time(timestamp) {
