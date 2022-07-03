@@ -104,7 +104,12 @@ a {
   color: black;
   transition: all 200ms ease-in-out;
 }
-a:hover {
+a:hover{
+  color: black;
+cursor: default;
+}
+.inactive:hover,
+.inactive{
   text-decoration: underline;
   color: rgb(66, 150, 168);
   cursor: pointer;

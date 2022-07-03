@@ -114,7 +114,8 @@ function searchTemp(response) {
       
       function usa(event) {
         event.preventDefault();
-        
+        celsius.classList.add("inactive")
+        fahrenheit.classList.remove("inactive");
         let dayFahrenheitTemp = (max * 9) / 5 + 32
         let nightFahrenheitTemp = (min * 9) / 5 + 32
         document.querySelector(
@@ -127,6 +128,8 @@ function searchTemp(response) {
           
           function canada(event) {
             event.preventDefault();
+            celsius.classList.remove("inactive")
+            fahrenheit.classList.add("inactive");
             let dayFahrenheitTemp = max
             let nightFahrenheitTemp = min
             document.querySelector(
