@@ -155,4 +155,9 @@ em {
   text-align: left;
   padding-left: 20px;
 }
-
+.weekday{
+  padding-left: 25px;
+  text-align: left;
+  position: relative;
+  top: 25px;
+}
