@@ -31,7 +31,6 @@ function searchTemp(response) {
 }
 
 function getForecast(coordinates) {
-  console.log(coordinates);
   let key = `727f8c7634f34b68e4f814522083ca30`;
   let apiurl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${key}&units=metric`;
 
@@ -42,18 +41,17 @@ function showForecast(response) {
   let forecastElement = document.querySelector("#forecast");
   let forecastHTML = `<div>`;
   forecast.forEach(function (forecastDay, index) {
-    console.log(forecastDay);
     if (index > 0 && index < 6) {
       forecastHTML =
         forecastHTML +
         `<div class="day"><div class="row">
               <div class="col-4">
-                <h4 id="one">${weekday(forecastDay.dt)}</h4>
+                <h4>${weekday(forecastDay.dt)}</h4>
               </div>
               <div class="col-3">
                 <img src="http://openweathermap.org/img/wn/${
                   forecastDay.weather[0].icon
-                }@2x.png" alt="#" class="icon"/>
+                }@2x.png" alt="forecastDay.weather[0].description" class="icon"/>
               </div>
               <div class="col-5">
                 <h4 class="degree">
@@ -64,7 +62,6 @@ function showForecast(response) {
               `;
     }
   });
-  console.log(forecast.HTML);
   forecastHTML = forecastHTML + `</div>`;
   forecastElement.innerHTML = forecastHTML;
 }
@@ -114,6 +111,7 @@ function noon(now) {
 }
 
 function returnDate(now) {
+  document.querySelector("#weekday").innerHTML = returnWeekday(now);
   let days = [
     `Sunday`,
     `Monday`,
@@ -137,7 +135,7 @@ function returnDate(now) {
     `November`,
     `December`,
   ];
-
+  
   return `${days[now.getDay()]}, ${
     months[now.getMonth()]
   } ${now.getDate()} ${now.getFullYear()}`;
@@ -153,6 +151,14 @@ function returnWeekday(now){
     `Satuday`,
   ];
   return `${days[now.getDay()]}`
+}
+
+function weekday(timestamp) {
+  let now = new Date(timestamp * 1000);
+  let day = now.getDay();
+  let week = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+
+  return week[day];
 }
 
 function usa(event) {
@@ -202,15 +208,6 @@ function showPosition(position) {
   axios.get(`${apiurl}`).then(searchTemp);
 }
 
-function weekday(timestamp) {
-  console.log(timestamp);
-  let now = new Date(timestamp * 1000);
-  let day = now.getDay();
-  let week = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
-
-  return week[day];
-}
-
 let now = new Date();
 
 let cities = document.querySelector("#input-text");
@@ -221,7 +218,6 @@ pm.innerHTML = noon(now);
 
 let calender = document.querySelector("#current-date");
 calender.innerHTML = returnDate(now);
-document.querySelector("#weekday").innerHTML = returnWeekday(now)
 
 let fahrenheit = document.querySelector("#fahrenheit");
 fahrenheit.addEventListener("click", usa);

@@ -17,6 +17,7 @@ body {
   background: rgba(73, 181, 205, 0.2);
   border: none;
   border-radius: 20px;
+  margin-bottom: 10px;
 }
 .main-icon {
   width: 200px;
