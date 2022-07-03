@@ -26,35 +26,24 @@ function searchTemp(response) {
       "src",
       `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
     );
+
+    getForecast(response.data.coords);
+  }
+  
+  function getForecast(coords){
+    let key = `727f8c7634f34b68e4f814522083ca30`;
+    let apiurl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coords.lat}&lon=${coords.lon}&appid=${key}&units=metric`;
+    
+    axios.get(`${apiurl}`).then(showForecast);
+}
+
+function showForecast(){
+
 }
 
 function time(timestamp) {
   let time = [
-    "00",
-    1,
-    2,
-    3,
-    4,
-    5,
-    6,
-    7,
-    8,
-    9,
-    10,
-    11,
-    12,
-    1,
-    2,
-    3,
-    4,
-    5,
-    6,
-    7,
-    8,
-    9,
-    10,
-    11,
-  ];
+    "00", 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11,];
   let now = new Date(timestamp);
   let hour = time[now.getHours()];
   let minutes = now.getMinutes();
@@ -118,7 +107,7 @@ function returnDate(now) {
     let key = `727f8c7634f34b68e4f814522083ca30`;
     let apiurl = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${key}&units=metric`;
     
-    axios.get(`${apiurl}`).then(showTemp);
+    axios.get(`${apiurl}`).then(searchTemp);
   }
   
   function weekday(now) {
