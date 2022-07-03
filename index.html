@@ -55,24 +55,27 @@
                   <span id="city"></span>
                   <span class="country" id="country"></span>
                 </h1>
+                <br />
+                <br />
                 <h5 class="update">Last updated:</h5>
+                <h4 class="current-date" id="current-date"></h4>
               </div>
               <div class="time">
-                <h5 id="pm"></h5>
+                <h5 class="pm" id="pm"></h5>
                 <h2></h2>
               </div>
             </div>
           </div>
         </div>
+
         <div class="col-lg-4 center">
           <div class="date">
-            <h4 id="current-date"></h4>
             <p class="temperature-scale">
-              <a href="#" id="celsius">°C</a>
+              <a href="#" class="temp" id="celsius">°C</a>
               |
-              <a href="#" class="inactive" id="fahrenheit">°F</a>
+              <a href="#" class="inactive temp" id="fahrenheit">°F</a>
             </p>
-            <img src="#" alt="" class="main-icon" id="icon">
+            <img src="#" alt="" class="main-icon" id="icon" />
           </div>
           <div class="temperature">
             <h3 class="day-temperature">
@@ -81,41 +84,33 @@
             <h3 class="night-temperature">/ 19°</h3>
           </div>
 
-          <div class="row">
-            
-              <h4>
-                <em id="description"></em>
-              </h4>
-            
-              <div class="card">
-                <div class="card-body">
-                  <div class="row">
-                    <div class="col-6">
-                      <p class="info">
-                        Cloudiness: <br />
-                        Humidity: <br />
-                        Wind:
-                      </p>
-                    </div>
-                    <div class="col-6">
-                      <span class="highlights"
-                        ><span id="clouds"></span> %</span
-                      >
-                      <br />
-                      <span class="highlights"
-                        ><span id="humidity"></span> %</span
-                      >
-                      <br />
-                      <span class="highlights"
-                        ><span id="wind"></span> km/hour</span
-                      >
-                    </div>
-                  </div>
+          <h4>
+            <em class="description" id="description"></em>
+          </h4>
+
+          <div class="card data">
+            <div class="card-body">
+              <div class="row">
+                <div class="col-6">
+                  <p class="info">
+                    Cloudiness: <br />
+                    Humidity: <br />
+                    Wind:
+                  </p>
+                </div>
+                <div class="col-6">
+                  <span class="highlights"><span id="clouds"></span> %</span>
+                  <br />
+                  <span class="highlights"><span id="humidity"></span> %</span>
+                  <br />
+                  <span class="highlights"
+                    ><span id="wind"></span> km/hour</span
+                  >
                 </div>
               </div>
             </div>
           </div>
-        
+        </div>
 
         <div class="col-lg-4 right">
           <div class="day one">
@@ -200,7 +195,9 @@
       </div>
     </div>
     <p class="link">
-      <a href="https://github.com/N-ascent/Weather-App">Open-source code</a>
+      <a href="https://github.com/N-ascent/Weather-App" class="source"
+        >Open-source code</a
+      >
       by Nicole Kwiring
     </p>
     <script src="script/homepage.js"></script>

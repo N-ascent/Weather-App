@@ -5,7 +5,7 @@ body {
 .container {
   text-align: center;
   border-radius: 40px;
-  padding: 40px;
+  padding: 20px 40px;
   background: radial-gradient(
     circle at 10% 20%,
     rgba(91, 173, 254, 0.46) 0%,
@@ -16,19 +16,15 @@ body {
 .card {
   background: rgba(73, 181, 205, 0.2);
   border: none;
-  margin-bottom: 25px;
   border-radius: 20px;
 }
-.main-icon{
-width:250px;
-height: 250px;
-}
-.icon {
-  font-size: 1500%;
-  line-height: 290px;
+.main-icon {
+  width: 250px;
+  height: 250px;
   position: relative;
-  top: 15px;
+  bottom: 30px;
 }
+
 h1 {
   font-family: "Roboto Slab", serif;
   text-align: left;
@@ -44,13 +40,18 @@ h2 {
   margin: 0 auto;
   font-weight: 700;
 }
-.update{
+.update {
   margin: 0 auto;
   text-align: left;
-position: relative;
-  top: 44px;
+  font-size: smaller;
+  position: relative;
+  top: 22px;
 }
-#pm {
+.current-date {
+  position: relative;
+  top: 40px;
+}
+.pm {
   margin: 0 auto;
   text-align: right;
   position: relative;
@@ -64,7 +65,7 @@ h3 {
 }
 .temperature {
   position: relative;
-  bottom: 50px;
+  bottom: 80px;
   background-color: rgba(217, 217, 217, 0.9);
   border-radius: 20px;
   max-width: fit-content;
@@ -95,6 +96,8 @@ h6 {
   margin: 0 auto;
   text-align: right;
   font-size: 18px;
+  position: relative;
+  top: 15px;
 }
 .day-temperature {
   font-weight: bolder;
@@ -104,12 +107,13 @@ a {
   color: black;
   transition: all 200ms ease-in-out;
 }
-a:hover{
+.temp:hover {
   color: black;
-cursor: default;
+  cursor: default;
 }
+.source:hover,
 .inactive:hover,
-.inactive{
+.inactive {
   text-decoration: underline;
   color: rgb(66, 150, 168);
   cursor: pointer;
@@ -136,15 +140,23 @@ cursor: default;
   cursor: pointer;
   background-color: rgb(66, 150, 168);
 }
-.highlights{
+.highlights {
   color: rgb(42, 129, 148);
   padding-right: 20px;
 }
-em{
+em {
   text-transform: capitalize;
 }
-.info{
+.info {
   opacity: 0.5;
   text-align: left;
   padding-left: 20px;
+}
+.description {
+  position: relative;
+  bottom: 20px;
+}
+.data {
+  position: relative;
+  bottom: 20px;
 }
