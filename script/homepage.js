@@ -117,7 +117,7 @@ function usa(event) {
   let day = document.querySelector(".day-temperature");
   let night = document.querySelector(".night-temperature");
   day.innerHTML = `<srtong><b> 70° </b></strong>`;
-  night.innerHTML = `/ 66°`;
+  night.innerHTML = `| 66°`;
 }
 
 function canada(event) {
@@ -125,7 +125,7 @@ function canada(event) {
   let day = document.querySelector(".day-temperature");
   let night = document.querySelector(".night-temperature");
   day.innerHTML = `<srtong><b> 21° </b></strong>`;
-  night.innerHTML = `/ 19°`;
+  night.innerHTML = `| 19°`;
 }
 
 function showTemp(response) {
