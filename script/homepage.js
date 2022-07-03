@@ -46,7 +46,7 @@ function showForecast(response) {
     if (index > 0 && index < 6) {
       forecastHTML =
         forecastHTML +
-        `<div class="row day">
+        `<div class="day"><div class="row">
               <div class="col-4">
                 <h4 id="one">${weekday(forecastDay.dt)}</h4>
               </div>
@@ -60,7 +60,7 @@ function showForecast(response) {
                   <strong>${Math.round(forecastDay.temp.max)}°</strong>
                   <h6>/ ${Math.round(forecastDay.temp.min)}°</h6>
                 </h4>
-              </div></div>
+              </div></div></div>
               `;
     }
   });
