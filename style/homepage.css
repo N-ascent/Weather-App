@@ -6,13 +6,8 @@ body {
   text-align: center;
   border-radius: 40px;
   padding: 20px 40px;
-  background: radial-gradient(
-    circle at 10% 20%,
-    rgba(91, 173, 254, 0.46) 0%,
-    rgba(91, 224, 254, 0.46) 47.2%,
-    rgba(170, 254, 235, 0.43) 90%
-  );
 }
+
 .card {
   background: rgba(73, 181, 205, 0.7);
   border: none;
@@ -22,12 +17,10 @@ body {
 .main-icon {
   width: 200px;
   height: 200px;
-  
 }
 .icon{
   width: 55px;
   height: 55px;
-  
 }
 h1 {
   font-family: "Roboto Slab", serif;
@@ -41,7 +34,6 @@ h1 {
 }
 h2 {
   font-size: 105px;
-  margin: 0 auto;
   font-weight: 700;
 }
 .update {
@@ -61,11 +53,9 @@ h2 {
   position: relative;
   top: 22px;
 }
-h3 {
+h3, h6, .description {
   display: inline;
-}
-.main-temperature {
-  font-weight: 800;
+  text-transform: capitalize;
 }
 .temperature {
   position: relative;
@@ -75,13 +65,6 @@ h3 {
   max-width: fit-content;
   padding: 10px 20px;
   margin: 0 auto;
-}
-p {
-  margin: 0 auto;
-}
-.message {
-  padding-top: 20px;
-  line-height: 40px;
 }
 .day {
   font-size: 50px;
@@ -93,11 +76,7 @@ p {
   padding-top: 25px;
   display: inline;
 }
-h6 {
-  display: inline;
-}
 .temperature-scale {
-  margin: 0 auto;
   text-align: right;
   font-size: 18px;
   position: relative;
@@ -132,7 +111,7 @@ a {
   padding: 8px;
 }
 .btn {
-  background-color: ;
+  background-color: rgb(66, 150, 168);
   border-color: rgb(0,0,0);
   color: rgb(0,0,0);
   transition: all 200ms ease-in-out;
@@ -141,20 +120,16 @@ a {
   cursor: pointer;
   border-color: #fff;
   color: #fff;
-  cursor: pointer;
-  background-color: rgb(66, 150, 168);
 }
 .highlights {
   color: black;
-  padding-right: 20px;
-}
-em {
-  text-transform: capitalize;
+  padding-right: 30px;
 }
 .info {
-  opacity: 0.5;
+  margin: 0 auto;
+  opacity: 0.6;
   text-align: left;
-  padding-left: 20px;
+  padding-left: 30px;
 }
 .weekday{
   padding-left: 25px;

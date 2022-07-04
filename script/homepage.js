@@ -20,29 +20,36 @@ function searchTemp(response) {
   );
   document.querySelector("#clouds").innerHTML = response.data.clouds.all;
   document.querySelector("h2").innerHTML = time(response.data.dt * 1000);
-  let icon = document.querySelector("#icon")
-    icon.setAttribute("src", `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
-    icon.setAttribute("alt", response.data.weather[0].description);
-    background(response.data.weather[0].icon);
+  let icon = document.querySelector("#icon");
+  icon.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
+  icon.setAttribute("alt", response.data.weather[0].description);
+  background(response.data.weather[0].icon);
 
   getForecast(response.data.coord);
 }
 
-function background(icon){
+function background(icon) {
   iconLetter = icon.replace(/[0-9]/g, ` `);
-  console.log(iconLetter)
+  console.log(iconLetter);
   let container = document.querySelector("#container");
+  let weekday = document.querySelector("#weekday");
+  let description = document.querySelector("#description");
   let button = document.querySelector(".btn");
-  if (iconLetter.trim() === "d"){
-  container.style.background = `radial-gradient(circle at 10% 20%, rgb(255, 200, 124) 0%, rgb(252, 251, 121) 90%)`;
-  button.style.background = `radial-gradient(circle at 10% 20%, rgb(255, 200, 124) 0%, rgb(252, 251, 121) 90%)`;
-} else {
-  if (iconLetter.trim() === "n"){
-    container.style.background = `linear-gradient(109.6deg, rgb(0, 0, 0) 11.2%, rgb(11, 132, 145) 91.1%)`;
-    button.style.background = `linear-gradient(109.6deg, rgb(0, 0, 0) 1.2%, rgb(11, 132, 145) 91.1%)`;
-  }
-  else{}
-  container.style.background = `default`;
+  if (iconLetter.trim() === "d") {
+    container.style.background = `radial-gradient(circle at 10% 20%, rgb(255, 200, 124) 0%, rgb(252, 251, 121) 90%)`;
+    button.style.background = `rgb(252, 251, 121)`;
+  } else {
+    if (iconLetter.trim() === "n") {
+      container.style.background = `linear-gradient(109.6deg, rgb(0, 0, 0) 11.2%, rgb(11, 132, 145) 91.1%)`;
+      button.style.background = `rgb(145, 205, 218)`;
+      weekday.style.color = `rgb(145, 205, 218)`;
+      description.style.color = `rgb(145, 205, 218)`;
+    } else {
+    }
+    container.style.background = `default`;
   }
 }
 
@@ -151,12 +158,12 @@ function returnDate(now) {
     `November`,
     `December`,
   ];
-  
+
   return `${days[now.getDay()]}, ${
     months[now.getMonth()]
   } ${now.getDate()} ${now.getFullYear()}`;
 }
-function returnWeekday(now){
+function returnWeekday(now) {
   let days = [
     `Sunday`,
     `Monday`,
@@ -166,7 +173,7 @@ function returnWeekday(now){
     `Friday`,
     `Satuday`,
   ];
-  return `${days[now.getDay()]}`
+  return `${days[now.getDay()]}`;
 }
 
 function weekday(timestamp) {
