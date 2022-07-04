@@ -38,11 +38,11 @@ function background(icon) {
   let weekday = document.querySelector("#weekday");
   let description = document.querySelector("#description");
   let button = document.querySelector(".btn");
-  if (iconLetter === "d") {
+  if (iconLetter.trim() === "d") {
     container.style.background = `radial-gradient(circle at 10% 20%, rgb(255, 200, 124) 0%, rgb(252, 251, 121) 90%)`;
     button.style.background = `rgb(252, 251, 121)`;
   } else {
-    if (iconLetter === "n") {
+    if (iconLetter.trim() === "n") {
       container.style.background = `linear-gradient(109.6deg, rgb(0, 0, 0) 11.2%, rgb(11, 132, 145) 91.1%)`;
       button.style.background = `rgb(145, 205, 218)`;
       weekday.style.color = `rgb(145, 205, 218)`;

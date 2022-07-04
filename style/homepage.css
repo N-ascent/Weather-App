@@ -105,8 +105,8 @@ a {
 .source:hover,
 .inactive:hover,
 .inactive {
-  text-decoration: underline;
   color: rgb(145, 205, 218);
+  text-decoration: underline;
   cursor: pointer;
 }
 .link {
