@@ -6,6 +6,11 @@ body {
   text-align: center;
   border-radius: 40px;
   padding: 20px 40px;
+  background: linear-gradient(
+    289.2deg,
+    rgb(191, 241, 236) 22.3%,
+    rgb(109, 192, 236) 84.1%
+  );
 }
 
 .card {
@@ -18,7 +23,7 @@ body {
   width: 200px;
   height: 200px;
 }
-.icon{
+.icon {
   width: 55px;
   height: 55px;
 }
@@ -52,8 +57,11 @@ h2 {
   text-align: right;
   position: relative;
   top: 22px;
+  font-weight: bolder;
 }
-h3, h6, .description {
+h3,
+h6,
+.description {
   display: inline;
   text-transform: capitalize;
 }
@@ -98,7 +106,7 @@ a {
 .inactive:hover,
 .inactive {
   text-decoration: underline;
-  color: rgb(66, 150, 168);
+  color: rgb(145, 205, 218);
   cursor: pointer;
 }
 .link {
@@ -112,8 +120,8 @@ a {
 }
 .btn {
   background-color: rgb(66, 150, 168);
-  border-color: rgb(0,0,0);
-  color: rgb(0,0,0);
+  border-color: rgb(0, 0, 0);
+  color: rgb(0, 0, 0);
   transition: all 200ms ease-in-out;
 }
 .btn:hover {
@@ -131,7 +139,7 @@ a {
   text-align: left;
   padding-left: 30px;
 }
-.weekday{
+.weekday {
   padding-left: 25px;
   text-align: left;
   position: relative;

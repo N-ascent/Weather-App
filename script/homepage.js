@@ -1,5 +1,4 @@
 function searchTemp(response) {
-  console.log(response.data);
   document.querySelector("#city").innerHTML = response.data.name;
   document.querySelector("#country").innerHTML = response.data.sys.country;
 
@@ -19,7 +18,8 @@ function searchTemp(response) {
     response.data.wind.speed * 3.6
   );
   document.querySelector("#clouds").innerHTML = response.data.clouds.all;
-  document.querySelector("h2").innerHTML = time(response.data.dt * 1000);
+  document.querySelector("h2").innerHTML = time(response.data.dt);
+
   let icon = document.querySelector("#icon");
   icon.setAttribute(
     "src",
@@ -38,11 +38,11 @@ function background(icon) {
   let weekday = document.querySelector("#weekday");
   let description = document.querySelector("#description");
   let button = document.querySelector(".btn");
-  if (iconLetter.trim() === "d") {
+  if (iconLetter === "d") {
     container.style.background = `radial-gradient(circle at 10% 20%, rgb(255, 200, 124) 0%, rgb(252, 251, 121) 90%)`;
     button.style.background = `rgb(252, 251, 121)`;
   } else {
-    if (iconLetter.trim() === "n") {
+    if (iconLetter === "n") {
       container.style.background = `linear-gradient(109.6deg, rgb(0, 0, 0) 11.2%, rgb(11, 132, 145) 91.1%)`;
       button.style.background = `rgb(145, 205, 218)`;
       weekday.style.color = `rgb(145, 205, 218)`;
@@ -59,6 +59,7 @@ function getForecast(coordinates) {
 
   axios.get(`${apiurl}`).then(showForecast);
 }
+
 function showForecast(response) {
   let forecast = response.data.daily;
   let forecastElement = document.querySelector("#forecast");
@@ -116,12 +117,14 @@ function time(timestamp) {
     10,
     11,
   ];
-  let now = new Date(timestamp);
+  let now = new Date(timestamp * 1000);
   let hour = time[now.getHours()];
   let minutes = now.getMinutes();
   if (minutes < 10) {
     minutes = `0${now.getMinutes()}`;
   }
+  document.querySelector("#pm").innerHTML = noon(now);
+  returnDate(now);
   return `${hour}:${minutes}`;
 }
 
@@ -134,7 +137,6 @@ function noon(now) {
 }
 
 function returnDate(now) {
-  document.querySelector("#weekday").innerHTML = returnWeekday(now);
   let days = [
     `Sunday`,
     `Monday`,
@@ -158,22 +160,10 @@ function returnDate(now) {
     `November`,
     `December`,
   ];
-
-  return `${days[now.getDay()]}, ${
+  document.querySelector("#weekday").innerHTML = days[now.getDay()];
+  document.querySelector("#current-date").innerHTML = `${days[now.getDay()]}, ${
     months[now.getMonth()]
   } ${now.getDate()} ${now.getFullYear()}`;
-}
-function returnWeekday(now) {
-  let days = [
-    `Sunday`,
-    `Monday`,
-    `Tuesday`,
-    `Wednesday`,
-    `Thursday`,
-    `Friday`,
-    `Satuday`,
-  ];
-  return `${days[now.getDay()]}`;
 }
 
 function weekday(timestamp) {
@@ -230,24 +220,10 @@ function showPosition(position) {
 
   axios.get(`${apiurl}`).then(searchTemp);
 }
-
-let now = new Date();
-
-let cities = document.querySelector("#input-text");
-cities.addEventListener("submit", search);
-
-let pm = document.querySelector("#pm");
-pm.innerHTML = noon(now);
-
-let calender = document.querySelector("#current-date");
-calender.innerHTML = returnDate(now);
-
-let fahrenheit = document.querySelector("#fahrenheit");
-fahrenheit.addEventListener("click", usa);
-
-let celsius = document.querySelector("#celsius");
-celsius.addEventListener("click", canada);
-
 navigator.geolocation.getCurrentPosition(showPosition);
 
+document.querySelector("#input-text").addEventListener("submit", search);
 auto("Vancouver");
+
+document.querySelector("#fahrenheit").addEventListener("click", usa);
+document.querySelector("#celsius").addEventListener("click", canada);
