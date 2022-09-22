@@ -29,6 +29,8 @@ function searchTemp(response) {
   background(response.data.weather[0].icon);
 
   getForecast(response.data.coord);
+
+  weekday(response.now);
 }
 
 function background(icon) {
